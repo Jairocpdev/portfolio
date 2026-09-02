@@ -1,0 +1,360 @@
+/* PORTFÓLIO JAIRO ANDRADE - CSS BASE MODERNO */
+:root {
+  --bg: #0a0a0b;
+  --bg-soft: #141416;
+  --bg-card: #1a1a1e;
+  --text: #f5f5f7;
+  --text-muted: #9f9fa9;
+  --border: #2a2a2e;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.15);
+  --radius: 16px;
+  --max-w: 1100px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LINKS E LISTAS */
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(10,10,11,0.7);
+  border-bottom: 1px solid var(--border);
+}
+header nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+header nav ul {
+  display: flex;
+  gap: 2rem;
+}
+header nav ul a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color .2s;
+}
+header nav ul a:hover { color: var(--text); }
+
+/* MAIN CONTAINER */
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+/* HERO */
+#hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 6rem 0 5rem;
+  min-height: 80vh;
+}
+#hero h2 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+#hero h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+#hero p {
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+#hero div:first-child a {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 0.8rem;
+  transition: all .2s;
+}
+#hero a[href="#projetos"] {
+  background: var(--text);
+  color: var(--bg);
+}
+#hero a[href="#projetos"]:hover { transform: translateY(-2px); opacity: .9; }
+#hero a[href="#contato"] {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+#hero a[href="#contato"]:hover { border-color: var(--text-muted); }
+#hero img {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  justify-self: end;
+  background: var(--bg-soft);
+  display: block;
+}
+#hero img[src=""] , #hero img:not([src]) { display: none; }
+
+/* SEÇÕES GENÉRICAS */
+section { padding: 5rem 0; border-top: 1px solid var(--border); }
+section h2 {
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+
+/* SOBRE */
+#sobre p { color: var(--text-muted); max-width: 700px; margin-bottom: 1rem; }
+#sobre ul { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+#sobre ul li {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* HABILIDADES */
+#habilidades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+#habilidades h2 { grid-column: 1 / -1; }
+#habilidades article {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+}
+#habilidades article h3 { font-size: 1rem; margin-bottom: 1rem; }
+#habilidades article ul li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#habilidades article ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* PROJETOS */
+#projetos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+#projetos > article {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: border-color .2s, transform .2s;
+}
+#projetos > article:hover {
+  border-color: #3a3a40;
+  transform: translateY(-2px);
+}
+#projetos h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+#projetos p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 700px; }
+#projetos h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.6rem; }
+#projetos ul { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+#projetos ul li {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+#projetos div { display: flex; gap: 0.8rem; }
+#projetos div a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  transition: all .2s;
+}
+#projetos div a:first-child { background: var(--text); color: var(--bg); border-color: var(--text); }
+#projetos div a:hover { opacity: .85; transform: translateY(-1px); }
+
+/* CONTATO - OUTROS CANAIS CORRIGIDO */
+#contato { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
+#contato h2 { grid-column: 1 / -1; }
+#contato > p { grid-column: 1 / -1; color: var(--text-muted); margin-top: -1.5rem; margin-bottom: 1rem; }
+#contato form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: grid; gap: 1.2rem;
+}
+#contato form label { font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem; }
+#contato form input, #contato form textarea {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+}
+#contato form input:focus, #contato form textarea:focus { border-color: var(--accent); }
+#contato button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+#contato button:hover { background: var(--accent-hover); }
+
+/* OUTROS CANAIS - NOVO DESIGN */
+#contato > div:last-child {
+  background: transparent;
+  border: none;
+  padding: 0;
+  align-self: start;
+  position: sticky;
+  top: 100px;
+}
+#contato > div:last-child h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+#contato > div:last-child ul.social-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  list-style: none;
+}
+#contato > div:last-child ul.social-inline li { flex: 1 1 auto; min-width: 130px; }
+#contato > div:last-child ul li {
+  margin: 0;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+#contato > div:last-child a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.85rem 1.1rem;
+  border-radius: 999px;
+  transition: all .2s ease;
+  width: 100%;
+}
+#contato > div:last-child a::after {
+  content: '↗';
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: transform .2s;
+  margin-left: auto;
+}
+#contato > div:last-child a:hover {
+  background: var(--bg-soft);
+  border-color: #3a3a40;
+  transform: translateX(2px);
+}
+#contato > div:last-child a:hover::after {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+
+/* HOVER COLORIDO POR REDE */
+#contato > div:last-child a[href*="github"]:hover {
+  background: #ffffff;
+  color: #0a0a0b;
+  border-color: #ffffff;
+}
+#contato > div:last-child a[href*="instagram"]:hover {
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  color: #fff;
+  border-color: transparent;
+}
+
+#contato > div:last-child a[href*="linkedin"]:hover {
+  background: #0a66c2;
+  color: #fff;
+  border-color: #0a66c2;
+}
+
+#contato > div:last-child a[href^="mailto"]:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; }
+  #hero img { justify-self: start; max-width: 280px; }
+  #habilidades { grid-template-columns: 1fr; }
+  #contato { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  header nav ul { gap: 1rem; }
+  header nav { padding: 1rem 1.2rem; }
+  main { padding: 0 1.2rem; }
+}
