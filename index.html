@@ -4,163 +4,115 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jairo Andrade | Desenvolvedor Full-Stack</title>
+    <title>Jairo Andrade | Dev Full-Stack</title>
 </head>
 <body>
+<header>
+  <nav><h1>Jairo Andrade</h1>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <ul>
+        <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#projetos" data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
+      </ul>
+      <button id="lang-toggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+</header>
+<main>
+  <section id="hero">
+    <div>
+      <h2 data-i18n="hero_title">Olá, eu sou Jairo Andrade</h2>
+      <h3 data-i18n="hero_sub">Desenvolvedor Full Stack</h3>
+      <p data-i18n="hero_desc">Transformo ideias em experiências digitais funcionais e modernas.</p>
+      <a href="#projetos" data-i18n="btn_projects">Ver Projetos</a>
+    </div>
+    <div><img src="./docs/foto-portfolio.jpeg" alt="Foto"></div>
+  </section>
 
-    <header>
-        <nav>
-            <h1>Jairo Andrade</h1>
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+ <section id="projetos">
+  <h2 data-i18n="projects_title">Projetos</h2>
 
-    <main>
+  <article>
+    <h3>Task Manager</h3>
+    <p data-i18n="proj_task_desc">Projeto Full-Stack completo com separação de responsabilidades: API robusta em Python e SPA moderna em Angular.</p>
+    <h4>Stack:</h4>
+    <ul>
+      <li>Angular</li><li>TypeScript</li><li>RxJS</li><li>Docker</li><li>PostgreSQL</li>
+    </ul>
+    <div>
+      <a href="https://github.com/Jairocpdev/task-api" target="_blank">GitHub</a>
+      <a href="https://task-manager-eosin-ten-31.vercel.app/" target="_blank">Live</a>
+    </div>
+  </article>
 
-        <section id="hero">
-            <div>
-                <h2>Olá, eu sou Jairo Andrade</h2>
-                <h3>Desenvolvedor Full Stack</h3>
-                <p>Transformo ideias em experiências digitais funcionais e modernas. Foco em código limpo, performance e usabilidade.</p>
-                <a href="#projetos">Ver Projetos</a>
-                <a href="#contato">Entrar em Contato</a>
-            </div>
-            <div>
-    
-                <img src="./docs/foto-portfolio.jpeg" alt="Foto de Jairo Andrade">
-            </div>
-        </section>
+  <article>
+    <h3>Starlink Network Monitor</h3>
+    <p data-i18n="proj_starlink_desc">Monitor em tempo real para 50 terminais LEO com WebSocket e visualização em mapa.</p>
+    <h4>Stack:</h4>
+    <ul>
+      <li>Angular</li><li>FastAPI</li><li>WebSocket</li><li>Leaflet</li>
+    </ul>
+    <div>
+      <a href="https://github.com/Jairocpdev/starlink-network-monitor" target="_blank">GitHub</a>
+      <a href="https://frontend-omega-vert-79.vercel.app" target="_blank">Live</a>
+    </div>
+  </article>
 
-        <section id="sobre">
-            <h2>Sobre Mim</h2>
-            <p>
-                Sou desenvolvedor apaixonado por tecnologia e resolução de problemas. 
-                Com experiência em desenvolvimento web, busco constantemente aprender novas 
-                tecnologias e aplicar boas práticas de desenvolvimento.
-            </p>
-            <p>
-                Localizado em Nilópolis, Rio de Janeiro. Aberto a oportunidades freelance e CLT.
-            </p>
-            <ul>
-                <li>Localização: Nilópolis - RJ, Brasil</li>
-                <li>Foco: Front-end, Back-end e UI</li>
-            </ul>
-        </section>
+  <article>
+    <h3>DN Task</h3>
+    <p data-i18n="proj_dn_desc">Task manager simples com React e Supabase.</p>
+    <h4>Stack:</h4>
+    <ul>
+      <li>React</li><li>TypeScript</li><li>Vite</li><li>Supabase</li><li>Tailwind CSS</li>
+    </ul>
+    <div>
+        <a href="https://github.com/Jairocpdev/dn-task" target="_blank">GitHub</a>
+      <a href="https://dn-task-roan.vercel.app" target="_blank">Live</a>
+    </div>
+  </article>
+</section>
 
-        <section id="habilidades">
-            <h2>Habilidades</h2>
-            
-            <article>
-                <h3>Front-end</h3>
-                <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>TypeScript</li>
-                </ul>
-            </article>
+  <section id="contato">
+    <h2 data-i18n="contact_title">Contato</h2>
+    <p data-i18n="contact_desc">Vamos construir algo incrível juntos? Me chame.</p>
+    <div>
+      <h3 data-i18n="contact_other">Outros canais</h3>
+      <ul class="social-inline">
+        <li><a href="https://github.com/Jairocpdev" target="_blank">GitHub</a></li>
+        <li><a href="https://www.instagram.com/jairocandrade" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/jairo-andrade-642724269" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 
-            <article>
-                <h3>Back-end</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Python</li>
-                    <li>API REST</li>
-                    <li>PostgreSQL</li>
-                </ul>
-            </article>
+<script>
+const translations = {
+  pt: { nav_about:"Sobre",nav_projects:"Projetos",nav_contact:"Contato",hero_title:"Olá, eu sou Jairo Andrade",hero_sub:"Desenvolvedor Full Stack",hero_desc:"Transformo ideias em experiências digitais funcionais.",btn_projects:"Ver Projetos",projects_title:"Projetos",proj_task_desc:"Full-Stack com Python e Angular.",contact_title:"Contato",contact_desc:"Vamos construir algo incrível juntos? Me chame.",contact_other:"Outros canais" },
+  en: { nav_about:"About",nav_projects:"Projects",nav_contact:"Contact",hero_title:"Hi, I'm Jairo Andrade",hero_sub:"Full-Stack Developer",hero_desc:"I turn ideas into functional digital experiences.",btn_projects:"View Projects",projects_title:"Projects",proj_task_desc:"Full-Stack with Python and Angular.",contact_title:"Contact",contact_desc:"Let's build something amazing together?",contact_other:"Other channels" },
+  
+  pt: {
+  proj_task_desc: "Projeto Full-Stack completo com separação de responsabilidades: API robusta em Python e SPA moderna em Angular.",
+  proj_starlink_desc: "Monitor em tempo real para 50 terminais LEO com WebSocket e visualização em mapa.",
+  proj_dn_desc: "Task manager simples com React e Supabase."
+},
+  en: {
+  proj_task_desc: "Complete Full-Stack project: robust Python API and modern Angular SPA.",
+  proj_starlink_desc: "Real-time monitor for 50 LEO terminals with WebSocket and map visualization.",
+  proj_dn_desc: "Simple task manager with React and Supabase."
+}
 
-            <article>
-                <h3>Ferramentas</h3>
-                <ul>
-                    <li>Git & GitHub</li>
-                    <li>Docker</li>
-                    <li>VS Code</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="projetos">
-            <h2>Projetos</h2>
-
-<article id="projeto-task-manager">
-                <h3>Task Manager - Gerenciador de Tarefas</h3>
-                <p>Projeto Full-Stack completo com separação de responsabilidades: API robusta em Python e SPA moderna em Angular.</p>
-                <h4>Stack:</h4>
-                <ul>
-                    <li>Angular</li>
-                    <li>TypeScript</li>
-                    <li>RxJS</li>
-                    <li>Docker</li>
-                    <li>PostgreSQL</li>
-                </ul>
-                <div>
-                    <a href="https://github.com/Jairocpdev/task-api" target="_blank" rel="noopener">Ver código no GitHub</a>
-                    <a href="https://task-manager-eosin-ten-31.vercel.app/" target="_blank" rel="noopener">Deploy</a>
-                </div>
-            </article>
-
-            <article id="projeto-starlink">
-                <h3>Starlink Network Monitor</h3>
-                <p>Real-time monitor for 50 LEO terminals</p>
-                <h4>Stack:</h4>
-                <ul>
-                    <li>Angular</li>
-                    <li>FastAPI</li>
-                    <li>WebSocket</li>
-                    <li>TypeScript</li>
-                    <li>Python</li>
-                    <li>Leaflet</li>
-                </ul>
-                <div>
-                    <a href="https://github.com/Jairocpdev/starlink-network-monitor" target="_blank" rel="noopener">Ver código no GitHub</a>
-                    <a href="https://frontend-omega-vert-79.vercel.app" target="_blank" rel="noopener">Deploy</a>
-                </div>
-            </article>
-
-            <article id="projeto-dn-task">
-                <h3>DN Task</h3>
-                <p>Task manager simples com React e Supabase.</p>
-                <ul>
-                    <li>React</li>
-                    <li>TypeScript</li>
-                    <li>Vite</li>
-                    <li>Supabase</li>
-                    <li>Tailwind CSS</li>
-                    <li>LocalStorage + API</li>
-                </ul>
-                <div>
-                    <a href="https://github.com/Jairocpdev" target="_blank" rel="noopener">Ver código no GitHub</a>
-                     <a href="https://dn-task-roan.vercel.app" target="_blank" rel="noopener">Deploy</a>
-                </div>
-            </article>
-
-
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Vamos construir algo incrível juntos? Me chame.</p>
-
-            <div>
-                <h3>Outros canais</h3>
-                <ul>
-                  <li><a href="https://github.com/Jairocpdev" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                  <li><a href="https://www.instagram.com/jairocandrade" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                  <li><a href="https://www.linkedin.com/in/jairo-andrade-642724269">LinkedIn</a></li>
-                </ul>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>Desenvolvido por Jairo Andrade</p>
-    </footer>
-
+};
+let currentLang='pt';
+function toggleLang(){
+  currentLang=currentLang==='pt'?'en':'pt';
+  document.getElementById('lang-toggle').innerText=currentLang==='pt'?'EN':'PT';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(translations[currentLang][k]) el.innerText=translations[currentLang][k];
+  });
+}
+</script>
 </body>
 </html>
