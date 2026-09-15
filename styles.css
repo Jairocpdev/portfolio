@@ -152,7 +152,12 @@ section h2 {
   gap: 1.5rem;
 }
 
-#projetos > article { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+#projetos > article { 
+  background: var(--bg-card); 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius); 
+  padding: 2rem; 
+}
 
 #contato { 
   display: grid; 
@@ -227,7 +232,6 @@ footer {
   } 
 }
 
-/* FIX PROJETOS - PÍLULAS E BOTÕES */
 #projetos > article ul {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -259,4 +263,77 @@ footer {
   background: transparent !important;
   color: var(--text) !important;
   border: 1px solid var(--border) !important;
+}
+
+#habilidades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+#habilidades h2 { 
+  grid-column: 1 / -1; 
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#habilidades article {
+  background: linear-gradient(180deg, var(--bg-card) 0%, #1e1e24 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#habilidades article:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
+}
+
+#habilidades article h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#habilidades article:nth-child(2) h3::before { 
+  content: "🎨"; 
+}
+
+#habilidades article:nth-child(3) h3::before { 
+  content: "⚙️"; 
+}
+
+#habilidades article:nth-child(4) h3::before { 
+  content: "🛠️"; 
+}
+
+#habilidades article ul li {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  padding: 0.45rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: color 0.2s;
+}
+
+#habilidades article ul li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px var(--accent-soft);
+  flex-shrink: 0;
+}
+
+#habilidades article:hover ul li {
+  color: var(--text);
 }
