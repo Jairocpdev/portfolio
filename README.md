@@ -1,4 +1,4 @@
-Portfólio - Jairo Andrade ✨
+Portfólio - Jairo Andrade
 
 Portfólio pessoal desenvolvido em HTML e CSS puro, com design dark minimalista e foco em performance.
 
