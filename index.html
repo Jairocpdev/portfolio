@@ -20,12 +20,12 @@
   </nav>
 </header>
 
-<!-- MISSION CONTROL LIVE - AGORA DENTRO DO BODY, CERTO -->
 <section id="mission-control" style="max-width:800px;margin:40px auto;padding:24px;background:#0a0a0a;border:1px solid #00ff88;border-radius:16px;font-family:monospace;color:#00ff88">
   <h3 style="margin:0 0 8px">🚀 Mission Control Go — LIVE API</h3>
   <p style="font-size:12px;color:#888;margin:0 0 20px">https://mission-control-go.onrender.com • Uptime: <span id="uptime">carregando...</span></p>
   <div id="sats" style="display:flex;flex-direction:column;gap:12px">Carregando satélites...</div>
-  <p style="font-size:11px;color:#555;margin-top:20px">by Jairo — <a href="https://github.com/Jairocpdev/mission-control-go" style="color:#00ff88">GitHub Go</a></p>
+  <canvas id="chart" width="800" height="200" style="margin-top:20px;background:#111;border:1px solid #222;border-radius:8px;padding:10px"></canvas>
+  <p style="font-size:11px;color:#555;margin-top:20px">by Jairo — <a href="https://github.com/Jairocpdev/mission-control-go" style="color:#00ff88">Go</a></p>
 </section>
 
 <main>
@@ -42,15 +42,13 @@
   <section id="projetos">
     <h2 data-i18n="projects_title">Projetos</h2>
     <article>
-
-  <h3>Mission Control - Go</h3>
-  <p data-i18n="proj_mission_desc">API de telemetria de satélites em Go puro, com simulação em tempo real, deploy no Render e integração ao vivo neste portfólio.</p>
-  <h4>Stack:</h4>
-  <ul><li>Go 1.27</li><li>net/http</li><li>sync.Mutex</li><li>Docker</li><li>Render</li></ul>
-  <div><a href="https://github.com/Jairocpdev/mission-control-go" target="_blank">GitHub</a><a href="https://mission-control-go.onrender.com/" target="_blank">Live API</a></div>
-</article>
-
-      <article>
+      <h3>Mission Control - Go</h3>
+      <p data-i18n="proj_mission_desc">API de telemetria de satélites em Go puro, com simulação em tempo real, deploy no Render e integração ao vivo neste portfólio.</p>
+      <h4>Stack:</h4>
+      <ul><li>Go 1.27</li><li>net/http</li><li>sync.Mutex</li><li>Docker</li><li>Render</li></ul>
+      <div><a href="https://github.com/Jairocpdev/mission-control-go" target="_blank">GitHub</a><a href="https://mission-control-go.onrender.com/" target="_blank">Live API</a></div>
+    </article>
+    <article>
       <h3>Task Manager - Gerenciador de Tarefas</h3>
       <p data-i18n="proj_task_desc">Projeto Full-Stack completo: API robusta em Python e SPA moderna em Angular.</p>
       <h4>Stack:</h4>
@@ -80,8 +78,11 @@
   </section>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 const API = 'https://mission-control-go.onrender.com';
+let chart;
+
 async function refresh() {
   try {
     const [sats, health] = await Promise.all([
@@ -100,15 +101,48 @@ async function refresh() {
     document.getElementById('sats').innerHTML = 'API dormindo (Render free) — atualize em 30s';
   }
 }
+
 async function heat(id){
   await fetch(`${API}/satellites/${id}/heat`, {method:'POST'});
   refresh();
+  drawChart();
 }
-refresh();
-setInterval(refresh, 15000);
-</script>
 
-<script>
+async function drawChart() {
+  try {
+    const h = await fetch(`${API}/history/SAT-01`).then(r=>r.json());
+    if(!h || h.length < 2) return;
+    const ctx = document.getElementById('chart').getContext('2d');
+    if(chart) chart.destroy();
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: h.map(p=> p.time),
+        datasets: [{
+          label: 'SAT-01 Temperatura (°C)',
+          data: h.map(p=>p.temp),
+          borderColor: '#00ff88',
+          backgroundColor: 'rgba(0,255,136,0.1)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        plugins: { legend: { labels: { color: '#00ff88' } } },
+        scales: {
+          x: { ticks: { color: '#888' }, grid: { color: '#222' } },
+          y: { ticks: { color: '#888' }, grid: { color: '#222' } }
+        }
+      }
+    });
+  } catch(e) {}
+}
+
+refresh();
+drawChart();
+setInterval(refresh, 15000);
+setInterval(drawChart, 15000);
+
 const translations = {
   pt: {
     nav_about:"Sobre",nav_projects:"Projetos",nav_contact:"Contato",
